@@ -13,7 +13,6 @@
 		0FE4439128610A3200E54C50 /* SwiftParsingPlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4439028610A3200E54C50 /* SwiftParsingPlaygroundApp.swift */; };
 		0FE4439328610A3200E54C50 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4439228610A3200E54C50 /* PlaygroundView.swift */; };
 		0FE4439528610A3300E54C50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE4439428610A3300E54C50 /* Assets.xcassets */; };
-		0FE4439828610A3300E54C50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE4439728610A3300E54C50 /* Preview Assets.xcassets */; };
 		0FE443A128610A9000E54C50 /* Shell in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE443A028610A9000E54C50 /* Shell */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +24,6 @@
 		0FE4439028610A3200E54C50 /* SwiftParsingPlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftParsingPlaygroundApp.swift; sourceTree = "<group>"; };
 		0FE4439228610A3200E54C50 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		0FE4439428610A3300E54C50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0FE4439728610A3300E54C50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0FE4439928610A3300E54C50 /* SwiftParsingPlayground.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftParsingPlayground.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -41,6 +39,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FAE85E628628BEB0089166B /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				0FAE85DF2862868B0089166B /* Info.plist */,
+				0FE4439428610A3300E54C50 /* Assets.xcassets */,
+				0FE4439928610A3300E54C50 /* SwiftParsingPlayground.entitlements */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		0FE4438428610A3200E54C50 = {
 			isa = PBXGroup;
 			children = (
@@ -62,22 +70,11 @@
 			children = (
 				0FE4439028610A3200E54C50 /* SwiftParsingPlaygroundApp.swift */,
 				0FAE85DD286282550089166B /* SwiftParsingPlaygroundDocument.swift */,
-				0FAE85DF2862868B0089166B /* Info.plist */,
+				0FAE85E628628BEB0089166B /* Configuration */,
 				0F8E674F28620D590020205A /* Globals.swift */,
 				0FE4439228610A3200E54C50 /* PlaygroundView.swift */,
-				0FE4439428610A3300E54C50 /* Assets.xcassets */,
-				0FE4439928610A3300E54C50 /* SwiftParsingPlayground.entitlements */,
-				0FE4439628610A3300E54C50 /* Preview Content */,
 			);
 			path = SwiftParsingPlayground;
-			sourceTree = "<group>";
-		};
-		0FE4439628610A3300E54C50 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0FE4439728610A3300E54C50 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,7 +141,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0FE4439828610A3300E54C50 /* Preview Assets.xcassets in Resources */,
 				0FE4439528610A3300E54C50 /* Assets.xcassets in Resources */,
 				0FAE85E02862868B0089166B /* Info.plist in Resources */,
 			);
@@ -285,16 +281,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SwiftParsingPlayground/SwiftParsingPlayground.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SwiftParsingPlayground/Configuration/SwiftParsingPlayground.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftParsingPlayground/Preview Content\"";
 				DEVELOPMENT_TEAM = N95F8ZHG2S;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftParsingPlayground/Info.plist;
+				INFOPLIST_FILE = SwiftParsingPlayground/Configuration/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -313,16 +308,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = SwiftParsingPlayground/SwiftParsingPlayground.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SwiftParsingPlayground/Configuration/SwiftParsingPlayground.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftParsingPlayground/Preview Content\"";
 				DEVELOPMENT_TEAM = N95F8ZHG2S;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = SwiftParsingPlayground/Info.plist;
+				INFOPLIST_FILE = SwiftParsingPlayground/Configuration/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
