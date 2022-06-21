@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "shell",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/mackoj/Shell.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "1b7dc5e77d707e379266f2959af141c79be2c2df"
+      }
+    }
+  ],
+  "version" : 2
+}
