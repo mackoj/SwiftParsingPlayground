@@ -6,28 +6,28 @@ struct ContentView: View {
   @State private var output: String = ""
   @State private var buildingOutput: String = ""
   
-  var baseURL: URL
-  var codeSourceURL: URL
+  var baseURL: URL { self.document.lastTmpFolder! }
+  var codeSourceURL: URL { self.baseURL.appendingPathComponent("Sources").appendingPathComponent("parser-playground") }
   
   init(document: Binding<SwiftParsingPlaygroundDocument>) {
     self._document = document
-    let baseURL = URL(fileURLWithPath: /*NSTemporaryDirectory()*/ NSHomeDirectory(), isDirectory: true)
-      .appendingPathComponent("SwiftParsingPlayground")
-      .appendingPathComponent(document.id.uuidString)
-      .appendingPathComponent("parser-playground")
-    self.baseURL = baseURL
-    self.codeSourceURL = baseURL.appendingPathComponent("Sources")
-      .appendingPathComponent("parser-playground")
-    do {
-      print("baseURL:", baseURL.path)
-      try FileManager.default.createDirectory(at: baseURL, withIntermediateDirectories: true)
-    } catch {
-      buildingOutput = "\(dump(error))"
-    }
   }
   
-  func createSPM() {
+  func initProcessingFolder() {
+    if self.document.lastTmpFolder == nil {
+      self.document.lastTmpFolder = URL(fileURLWithPath: /*NSTemporaryDirectory()*/ NSHomeDirectory(), isDirectory: true)
+        .appendingPathComponent("SwiftParsingPlayground__TMP")
+        .appendingPathComponent(document.id.uuidString)
+        .appendingPathComponent("parser-playground")
+    }
     
+    if FileManager.default.fileExists(atPath: self.baseURL.path) == false {
+      do {
+        try FileManager.default.createDirectory(at: self.baseURL, withIntermediateDirectories: true)
+      } catch {
+        buildingOutput = "\(dump(error))"
+      }
+    }
   }
   
   var body: some View {
@@ -91,6 +91,7 @@ struct ContentView: View {
           .fixedSize(horizontal: false, vertical: false)
       }.frame(height: 300)
     }
+    .task { initProcessingFolder() }
     .frame(width: 1280, height: 720)
   }
 }

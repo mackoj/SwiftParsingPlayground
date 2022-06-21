@@ -11,17 +11,21 @@ struct SwiftParsingPlaygroundDocument: FileDocument, Identifiable, Codable {
   var id: UUID
   var parser: String
   var input: String
-  
+  var lastTmpFolder: URL?
+
   init() {
     self.id = UUID()
     self.parser = ""
     self.input = ""
+    self.lastTmpFolder = nil
   }
   
+  // Coding du fichier
   enum CodingKeys: CodingKey {
     case id
     case parser
     case input
+    case lastTmpFolder
   }
   
   static var readableContentTypes: [UTType] { [.swiftParsingPlayground] }
@@ -35,6 +39,7 @@ struct SwiftParsingPlaygroundDocument: FileDocument, Identifiable, Codable {
     self.id = content.id
     self.parser = content.parser
     self.input = content.input
+    self.lastTmpFolder = content.lastTmpFolder
   }
   
   func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
