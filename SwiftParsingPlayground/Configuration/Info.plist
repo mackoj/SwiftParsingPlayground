@@ -16,14 +16,6 @@
 				<string>com.swift-parsing.playground</string>
 			</array>
 		</dict>
-		<dict>
-			<key>CFBundleTypeName</key>
-			<string>asdasd</string>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>LSHandlerRank</key>
-			<string>Default</string>
-		</dict>
 	</array>
 	<key>UTImportedTypeDeclarations</key>
 	<array>
