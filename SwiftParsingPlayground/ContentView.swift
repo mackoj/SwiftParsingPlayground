@@ -2,21 +2,18 @@ import SwiftUI
 import Shell
 
 struct ContentView: View {
-  @State private var parser: String = mockParser
-  @State private var input: String = mockInput
+  @Binding var document: SwiftParsingPlaygroundDocument
   @State private var output: String = ""
   @State private var buildingOutput: String = ""
   
-  var id: UUID
   var baseURL: URL
   var codeSourceURL: URL
   
-  init() {
-    let uber = UUID() // UUID(uuidString: "C5A54EEB-7FCB-4E8B-B69E-7D5C7432854E")!
-    self.id = uber
+  init(document: Binding<SwiftParsingPlaygroundDocument>) {
+    self._document = document
     let baseURL = URL(fileURLWithPath: /*NSTemporaryDirectory()*/ NSHomeDirectory(), isDirectory: true)
       .appendingPathComponent("SwiftParsingPlayground")
-      .appendingPathComponent(uber.uuidString)
+      .appendingPathComponent(document.id.uuidString)
       .appendingPathComponent("parser-playground")
     self.baseURL = baseURL
     self.codeSourceURL = baseURL.appendingPathComponent("Sources")
@@ -38,7 +35,7 @@ struct ContentView: View {
       HStack {
         VStack {
           Text("Parser").font(.title)
-          TextEditor(text: $parser)
+          TextEditor(text: $document.parser)
             .foregroundColor(Color(.systemGray))
             .border(Color.red)
             .padding()
@@ -47,7 +44,7 @@ struct ContentView: View {
         }
         VStack {
           Text("Input").font(.title)
-          TextEditor(text: $input)
+          TextEditor(text: $document.input)
             .foregroundColor(Color(.systemGray))
             .border(Color.red)
             .padding()
@@ -63,17 +60,17 @@ struct ContentView: View {
           buildingOutput = ""
           do {
             if FileManager.default.fileExists(atPath: codeSourceURL.appendingPathComponent("playground.swift").path) {
-              try input.write(to: baseURL.appendingPathComponent("input.txt"), atomically: true, encoding: .utf8)
-              try parser.write(to: codeSourceURL.appendingPathComponent("parser.swift"), atomically: true, encoding: .utf8)
+              try document.input.write(to: baseURL.appendingPathComponent("input.txt"), atomically: true, encoding: .utf8)
+              try document.parser.write(to: codeSourceURL.appendingPathComponent("parser.swift"), atomically: true, encoding: .utf8)
               buildingOutput += try shell("cd \(baseURL.path) && swift run parser-playground input.txt output.txt")
               output = try String(contentsOfFile: baseURL.appendingPathComponent("output.txt").path)
             } else {
               buildingOutput += try shell("cd \(baseURL.path) && swift package init --type executable")
               try FileManager.default.removeItem(at: codeSourceURL.appendingPathComponent("main.swift"))
               try packageContent.write(to: baseURL.appendingPathComponent("Package.swift"), atomically: true, encoding: .utf8)
-              try input.write(to: baseURL.appendingPathComponent("input.txt"), atomically: true, encoding: .utf8)
+              try document.input.write(to: baseURL.appendingPathComponent("input.txt"), atomically: true, encoding: .utf8)
               try mainScriptContent.write(to: codeSourceURL.appendingPathComponent("playground.swift"), atomically: true, encoding: .utf8)
-              try parser.write(to: codeSourceURL.appendingPathComponent("parser.swift"), atomically: true, encoding: .utf8)
+              try document.parser.write(to: codeSourceURL.appendingPathComponent("parser.swift"), atomically: true, encoding: .utf8)
               buildingOutput += try shell("cd \(baseURL.path) && swift run parser-playground input.txt output.txt")
               output = try String(contentsOfFile: baseURL.appendingPathComponent("output.txt").path)
             }
@@ -100,6 +97,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView()
+    ContentView(document: .constant(SwiftParsingPlaygroundDocument()))
   }
 }

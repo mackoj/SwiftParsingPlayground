@@ -83,6 +83,27 @@ let mockParser = """
 import Foundation
 import Parsing
 
+public let mainParser = Many(1...) {
+  textWithAttributes
+}
+
+// MARK: Parser Internal
+let textWithAttributes = Parse(ParsedConsoleText.init(color:string:)) {
+  Peek { Prefix<Substring>(1) }
+  Optionally { terminalFontModifier }
+  Optionally { PrefixUntil("[") { terminalFontModifier }.map(String.init) }
+}
+
+let terminalFontModifier = Parse(TerminalAttribute.init) {
+  "["
+  Int.parser()
+  Optionally {
+    ";"
+    Int.parser()
+  }
+  "m"
+}
+
 public enum TerminalAttributeCode: Int, RawRepresentable, Codable {
   case bold                     = 1
   case dim                      = 2
@@ -164,26 +185,5 @@ public struct ParsedConsoleText: Codable {
     self.text = string ?? ""
     self.attribute = color
   }
-}
-
-public let mainParser = Many(1...) {
-  textWithAttributes
-}
-
-// MARK: Parser Internal
-let textWithAttributes = Parse(ParsedConsoleText.init(color:string:)) {
-  Peek { Prefix<Substring>(1) }
-  Optionally { terminalFontModifier }
-  Optionally { PrefixUntil("[") { terminalFontModifier }.map(String.init) }
-}
-
-let terminalFontModifier = Parse(TerminalAttribute.init) {
-  "["
-  Int.parser()
-  Optionally {
-    ";"
-    Int.parser()
-  }
-  "m"
 }
 """
