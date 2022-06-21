@@ -1,7 +1,7 @@
 import SwiftUI
 import Shell
 
-struct ContentView: View {
+struct PlaygroundView: View {
   @Binding var document: SwiftParsingPlaygroundDocument
   @State private var output: String = ""
   @State private var buildingOutput: String = ""
@@ -98,6 +98,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ContentView(document: .constant(SwiftParsingPlaygroundDocument()))
+    PlaygroundView(document: .constant(SwiftParsingPlaygroundDocument()))
   }
 }

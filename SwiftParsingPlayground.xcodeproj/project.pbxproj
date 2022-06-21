@@ -11,7 +11,7 @@
 		0FAE85DE286282550089166B /* SwiftParsingPlaygroundDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FAE85DD286282550089166B /* SwiftParsingPlaygroundDocument.swift */; };
 		0FAE85E02862868B0089166B /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0FAE85DF2862868B0089166B /* Info.plist */; };
 		0FE4439128610A3200E54C50 /* SwiftParsingPlaygroundApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4439028610A3200E54C50 /* SwiftParsingPlaygroundApp.swift */; };
-		0FE4439328610A3200E54C50 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4439228610A3200E54C50 /* ContentView.swift */; };
+		0FE4439328610A3200E54C50 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE4439228610A3200E54C50 /* PlaygroundView.swift */; };
 		0FE4439528610A3300E54C50 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE4439428610A3300E54C50 /* Assets.xcassets */; };
 		0FE4439828610A3300E54C50 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FE4439728610A3300E54C50 /* Preview Assets.xcassets */; };
 		0FE443A128610A9000E54C50 /* Shell in Frameworks */ = {isa = PBXBuildFile; productRef = 0FE443A028610A9000E54C50 /* Shell */; };
@@ -23,7 +23,7 @@
 		0FAE85DF2862868B0089166B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FE4438D28610A3200E54C50 /* SwiftParsingPlayground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftParsingPlayground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FE4439028610A3200E54C50 /* SwiftParsingPlaygroundApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftParsingPlaygroundApp.swift; sourceTree = "<group>"; };
-		0FE4439228610A3200E54C50 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		0FE4439228610A3200E54C50 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
 		0FE4439428610A3300E54C50 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0FE4439728610A3300E54C50 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0FE4439928610A3300E54C50 /* SwiftParsingPlayground.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SwiftParsingPlayground.entitlements; sourceTree = "<group>"; };
@@ -64,7 +64,7 @@
 				0FAE85DD286282550089166B /* SwiftParsingPlaygroundDocument.swift */,
 				0FAE85DF2862868B0089166B /* Info.plist */,
 				0F8E674F28620D590020205A /* Globals.swift */,
-				0FE4439228610A3200E54C50 /* ContentView.swift */,
+				0FE4439228610A3200E54C50 /* PlaygroundView.swift */,
 				0FE4439428610A3300E54C50 /* Assets.xcassets */,
 				0FE4439928610A3300E54C50 /* SwiftParsingPlayground.entitlements */,
 				0FE4439628610A3300E54C50 /* Preview Content */,
@@ -158,7 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0FAE85DE286282550089166B /* SwiftParsingPlaygroundDocument.swift in Sources */,
-				0FE4439328610A3200E54C50 /* ContentView.swift in Sources */,
+				0FE4439328610A3200E54C50 /* PlaygroundView.swift in Sources */,
 				0FE4439128610A3200E54C50 /* SwiftParsingPlaygroundApp.swift in Sources */,
 				0F8E675028620D590020205A /* Globals.swift in Sources */,
 			);
